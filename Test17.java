@@ -1,6 +1,6 @@
 package src;
 
-import java.util.HashMap;
+import java.util.Scanner;
 
 /**
  * @author xu yan
@@ -13,31 +13,14 @@ import java.util.HashMap;
 public class Test17 {
 
     public static void main(String[] args) {
-        int[] arr = {2,8,6,2,7,3,9,2,8,6,7,9,1};
-        int[] num1 = {0};
-        int[] num2 = {0};
-        new Test17().FindNumsAppearOnce(arr,num1,num2);
-    }
-
-    public void FindNumsAppearOnce(int [] array,int num1[] , int num2[]) {
-        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-        for(int i=0; i < array.length; i++){
-            if(map.containsKey(array[i]))
-                map.put(array[i],2);
-            else
-                map.put(array[i],1);
-        }
-        int count = 0;
-        for(int i=0; i < array.length; i++){
-            if(map.get(array[i]) == 1){
-                if(count == 0){
-                    num1[0] =  array[i];
-                    count++;
-                }else
-                    num2[0] =  array[i];
+        Scanner s = new Scanner(System.in);
+        while(true){
+            String str = s.next();
+            if("GET".equals(str)){
+                //math.random()范围是[0.0, 1.0)，那么math.random()*9+1一定是小于10的，(Math.random()*9+1)*100000一定是<10*100000=1000000的一个数
+                System.out.println((int)((Math.random()*9+1)*100000));
             }
         }
-        System.out.println("只出现一次的数字是" + num1[0] + "和" + num2[0]);
     }
 
 }
